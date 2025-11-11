@@ -21,9 +21,15 @@ public class GlobalBlockUtilsBypassMixin {
                                           CallbackInfoReturnable<BlockState> cir) {
         if (context instanceof PacketContext.NotNullWithPlayer ctx) {
             ServerPlayerEntity player = ctx.getPlayer();
-            if (player != null && FloodgateApi.getInstance().isFloodgatePlayer(player.getUuid())) {
-                System.out.println("[PolyCompat] Block bypass triggered for " + blockState.getBlock());
-                cir.setReturnValue(blockState); // return original block state
+            if (player != null) {
+                if (FloodgateApi.getInstance().isFloodgatePlayer(player.getUuid())) {
+                    // Bedrock: bypass disguise
+                    System.out.println("[PolyCompat] Block bypass triggered for " + blockState.getBlock());
+                    cir.setReturnValue(blockState);
+                } else {
+                    // Java: keep Polymer’s return value
+                    cir.setReturnValue(cir.getReturnValue());
+                }
             }
         }
     }
