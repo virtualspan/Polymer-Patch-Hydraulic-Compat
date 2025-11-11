@@ -22,11 +22,17 @@ public class GlobalItemUtilsBypassMixin {
                                          CallbackInfoReturnable<PolymerItemUtils.ItemWithMetadata> cir) {
         if (context instanceof PacketContext.NotNullWithPlayer ctx) {
             ServerPlayerEntity player = ctx.getPlayer();
-            if (FloodgateApi.getInstance().isFloodgatePlayer(player.getUuid())) {
-                Item realItem = stack.getItem();
-                System.out.println("[PolyCompat] ItemUtils bypass triggered for " + realItem);
-                cir.setReturnValue(new PolymerItemUtils.ItemWithMetadata(realItem,
-                        polymerItem.getPolymerItemModel(stack, context)));
+            if (player != null) {
+                if (FloodgateApi.getInstance().isFloodgatePlayer(player.getUuid())) {
+                    // Bedrock: bypass disguise
+                    Item realItem = stack.getItem();
+                    System.out.println("[PolyCompat] ItemUtils bypass triggered for " + realItem);
+                    cir.setReturnValue(new PolymerItemUtils.ItemWithMetadata(realItem,
+                            polymerItem.getPolymerItemModel(stack, context)));
+                } else {
+                    // Java: keep Polymer’s return value
+                    cir.setReturnValue(cir.getReturnValue());
+                }
             }
         }
     }

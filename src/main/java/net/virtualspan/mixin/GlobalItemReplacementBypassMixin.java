@@ -18,9 +18,15 @@ public interface GlobalItemReplacementBypassMixin {
                                              CallbackInfoReturnable<Item> cir) {
         if (context instanceof PacketContext.NotNullWithPlayer ctx) {
             ServerPlayerEntity player = ctx.getPlayer();
-            if (FloodgateApi.getInstance().isFloodgatePlayer(player.getUuid())) {
-                System.out.println("[PolyCompat] Item replacement bypass triggered for " + item);
-                cir.setReturnValue(item); // keep original item
+            if (player != null) {
+                if (FloodgateApi.getInstance().isFloodgatePlayer(player.getUuid())) {
+                    // Bedrock: bypass disguise
+                    System.out.println("[PolyCompat] Item replacement bypass triggered for " + item);
+                    cir.setReturnValue(item);
+                } else {
+                    // Java: keep Polymer’s return value
+                    cir.setReturnValue(cir.getReturnValue());
+                }
             }
         }
     }
