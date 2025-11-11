@@ -1,0 +1,27 @@
+{
+  "required": true,
+  "package": "net.virtualspan.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "GlobalItemReplacementBypassMixin",
+    "GlobalItemUtilsBypassMixin",
+    "GlobalBlockUtilsBypassMixin",
+    "GlobalBlockResourceUtilsAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "parent": "",
+  "mixinPriority": -1,
+  "server": [],
+  "minVersion": "",
+  "setSourceFile": false,
+  "client": [],
+  "priority": -1,
+  "refmap": "polycompat-hydraulic.refmap.json",
+  "target": "",
+  "verbose": false
+}

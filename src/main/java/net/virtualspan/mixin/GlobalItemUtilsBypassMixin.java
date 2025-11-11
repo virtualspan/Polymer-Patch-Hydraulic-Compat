@@ -1,0 +1,33 @@
+package net.virtualspan.mixin;
+
+import eu.pb4.polymer.core.api.item.PolymerItem;
+import eu.pb4.polymer.core.api.item.PolymerItemUtils;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import xyz.nucleoid.packettweaker.PacketContext;
+import org.geysermc.floodgate.api.FloodgateApi;
+
+@Mixin(PolymerItemUtils.class)
+public class GlobalItemUtilsBypassMixin {
+    @Inject(method = "getItemSafely", at = @At("RETURN"), cancellable = true)
+    private static void bypassItemSafely(PolymerItem polymerItem,
+                                         ItemStack stack,
+                                         PacketContext context,
+                                         int maxDistance,
+                                         CallbackInfoReturnable<PolymerItemUtils.ItemWithMetadata> cir) {
+        if (context instanceof PacketContext.NotNullWithPlayer ctx) {
+            ServerPlayerEntity player = ctx.getPlayer();
+            if (FloodgateApi.getInstance().isFloodgatePlayer(player.getUuid())) {
+                Item realItem = stack.getItem();
+                System.out.println("[PolyCompat] ItemUtils bypass triggered for " + realItem);
+                cir.setReturnValue(new PolymerItemUtils.ItemWithMetadata(realItem,
+                        polymerItem.getPolymerItemModel(stack, context)));
+            }
+        }
+    }
+}
