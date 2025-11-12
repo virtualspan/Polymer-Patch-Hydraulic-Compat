@@ -26,7 +26,6 @@ public class GlobalItemUtilsBypassMixin {
                 if (FloodgateApi.getInstance().isFloodgatePlayer(player.getUuid())) {
                     // Bedrock: bypass disguise
                     Item realItem = stack.getItem();
-                    System.out.println("[PolyCompat] ItemUtils bypass triggered for " + realItem);
                     cir.setReturnValue(new PolymerItemUtils.ItemWithMetadata(realItem,
                             polymerItem.getPolymerItemModel(stack, context)));
                 } else {

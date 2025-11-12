@@ -24,7 +24,6 @@ public class GlobalBlockUtilsBypassMixin {
             if (player != null) {
                 if (FloodgateApi.getInstance().isFloodgatePlayer(player.getUuid())) {
                     // Bedrock: bypass disguise
-                    System.out.println("[PolyCompat] Block bypass triggered for " + blockState.getBlock());
                     cir.setReturnValue(blockState);
                 } else {
                     // Java: keep Polymer’s return value

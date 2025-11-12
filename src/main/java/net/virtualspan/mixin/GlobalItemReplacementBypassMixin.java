@@ -21,7 +21,6 @@ public interface GlobalItemReplacementBypassMixin {
             if (player != null) {
                 if (FloodgateApi.getInstance().isFloodgatePlayer(player.getUuid())) {
                     // Bedrock: bypass disguise
-                    System.out.println("[PolyCompat] Item replacement bypass triggered for " + item);
                     cir.setReturnValue(item);
                 } else {
                     // Java: keep Polymer’s return value
