@@ -3,7 +3,7 @@
   "id": "hydraulicpolybridge",
   "version": "${version}",
   "name": "HydraulicPolyBridge",
-  "description": "Allows Polymer Patch Mods and PolyMC to work seamlessly alongside Hydraulic, ensuring Bedrock and Java players get a consistent experience.",
+  "description": "Allows Polymer Patch Mods and PolyMC to work seamlessly alongside Hydraulic",
   "authors": [
     "virtualspan"
   ],
@@ -24,7 +24,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.17.3",
-    "minecraft": "~1.21.10",
+    "minecraft": "*",
     "java": ">=21",
     "fabric-api": "*",
     "hydraulic": "*",

@@ -51,7 +51,7 @@ If you want a (very buggy!) proof of concept, you can use this mod alongside the
 - Leaves Us In Peace
 - PolyFactory
 
-Optionally to add Biomes O Plenty with PolyMc:
+**Optionally to add Biomes O Plenty with PolyMc:**
 
 **Add:**
 - [PolyMC fork](https://github.com/SAGUMEDREAM/PolyMc/releases)
