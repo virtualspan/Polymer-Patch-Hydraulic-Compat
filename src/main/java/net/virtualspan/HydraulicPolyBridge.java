@@ -10,7 +10,7 @@ import net.virtualspan.polymc.FloodgatePolyMapHandler;
  * Main mod initializer. Registers Floodgate tracking and PolyMap handler
  * when the dedicated server starts.
  */
-public class PolyCompatHydraulic implements DedicatedServerModInitializer {
+public class HydraulicPolyBridge implements DedicatedServerModInitializer {
     @Override
     public void onInitializeServer() {
         // Track Floodgate players early

@@ -10,7 +10,7 @@ base {
 }
 
 loom {
-    mixin.defaultRefmapName = "polycompat-hydraulic.refmap.json"
+    mixin.defaultRefmapName = "hydraulicpolybridge.refmap.json"
 }
 
 repositories {

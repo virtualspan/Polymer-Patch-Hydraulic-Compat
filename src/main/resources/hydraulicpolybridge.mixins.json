@@ -23,7 +23,7 @@
   "setSourceFile": false,
   "client": [],
   "priority": -1,
-  "refmap": "polycompat-hydraulic.refmap.json",
+  "refmap": "hydraulicpolybridge.refmap.json",
   "target": "",
   "verbose": false
 }
