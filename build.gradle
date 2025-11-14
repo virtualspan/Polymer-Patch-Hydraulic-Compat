@@ -19,6 +19,10 @@ repositories {
 
     // Floodgate
     maven { url = uri("https://repo.opencollab.dev/main/") }
+
+    // PolyMc
+    maven { url "https://maven.theepicblock.nl"; content { includeGroup("nl.theepicblock") } }
+    maven { url = uri("https://jitpack.io") }
 }
 
 dependencies {
@@ -28,7 +32,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     // Floodgate API
-    modImplementation "org.geysermc.floodgate:api:${project.floodgate_version}"
+    compileOnly "org.geysermc.floodgate:api:${project.floodgate_version}"
 
     // Fabric API
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
@@ -37,8 +41,11 @@ dependencies {
     modImplementation "eu.pb4:polymer-core:${project.polymer_version}"
     modImplementation "eu.pb4:polymer-blocks:${project.polymer_version}"
 
-    // PolyMC fork https://github.com/SAGUMEDREAM/PolyMc/tree/dev/1.21.10
-    modCompileOnly files("libs/PolyMc-5.7.0-rev.4444cef-dirty+1.21.10.jar")
+    // PolyMc fork https://github.com/Patbox/PolyMc/tree/dev/1.21.6
+    modCompileOnly ('com.github.Patbox:PolyMc:dev~1.21.6-SNAPSHOT') {
+        exclude(group: "org.quiltmc", module: "quilt-loader")
+        exclude(group: "net.fabricmc.fabric-api")
+    }
 }
 
 processResources {
