@@ -1,5 +1,5 @@
 # HydraulicPolyBridge
-HydraulicPolyBridge allows [Polymer Patch Mods](https://modrinth.com/mods?q=polymer+patch) and [PolyMc](https://github.com/TheEpicBlock/PolyMc) to work seamlessly alongside Hydraulic, ensuring both Java and Bedrock players get a consistent experience.
+HydraulicPolyBridge allows [Polymer Patch Mods](https://modrinth.com/mods?q=polymer+patch) and [PolyMc](https://github.com/TheEpicBlock/PolyMc) to work seamlessly alongside [Hydraulic](https://geysermc.org/download?project=other-projects&hydraulic=expanded), ensuring both Java and Bedrock players get a consistent experience.
 
 Recommended PolyMc fork: https://github.com/SAGUMEDREAM/PolyMc/releases
 
@@ -13,7 +13,7 @@ In practice, this means that `Farmer’s Delight + Hydraulic` works just as smoo
 ## Compatibility
 Mods with custom entities are not yet supported (as in the entites will be invisible on Bedrock), because Hydraulic itself does not currently handle them. Beyond that, if `X + Hydraulic` works, then you can expect `HydraulicPolyBridge + X + X Polymer Patch + Hydraulic` or `HydraulicPolyBridge + X + PolyMc + Hydraulic` to also work on Bedrock.
 
-## HydraulicPolyBridge vs Bedframe
+## HydraulicPolyBridge vs [Bedframe](https://modrinth.com/mod/bedframe)
 
 | Feature                  | HydraulicPolyBridge                                                                    | Bedframe                                                                                 |
 |--------------------------|----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
