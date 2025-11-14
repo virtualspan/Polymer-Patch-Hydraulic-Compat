@@ -33,6 +33,7 @@
   },
   "suggests": {
     "polymer-bundled": "*",
+    "polymc": "*",
     "hurricane": "*"
   }
 }

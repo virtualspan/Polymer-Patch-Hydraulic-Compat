@@ -2,6 +2,7 @@ package net.virtualspan;
 
 import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.server.MinecraftServer;
 import net.virtualspan.polymc.FloodgateTracker;
 import net.virtualspan.polymc.FloodgatePolyMapHandler;
@@ -16,9 +17,11 @@ public class HydraulicPolyBridge implements DedicatedServerModInitializer {
         // Track Floodgate players early
         FloodgateTracker.register();
 
-        // Hook PolyMapProvider once the server has started
+        // Hook PolyMapProvider once the server has started, but only if PolyMC is present
         ServerLifecycleEvents.SERVER_STARTED.register((MinecraftServer server) -> {
-            FloodgatePolyMapHandler.register(server);
+            if (FabricLoader.getInstance().isModLoaded("polymc")) {
+                FloodgatePolyMapHandler.register(server);
+            }
         });
     }
 }
